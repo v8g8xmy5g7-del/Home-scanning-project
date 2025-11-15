@@ -33,7 +33,6 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.actions{display:flex;gap:5px}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.actions button{flex:1}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.count{text-align:center;font-size:1.2em;margin:15px 0}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.msg{color:#e74c3c;text-align:center;margin:10px}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/head&gt;</span></p>
 <p class="p1"><span class="s1">&lt;body&gt;</span></p>
@@ -53,7 +52,6 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="search"&gt;&lt;input type="text" id="searchInput" placeholder="Search items..." /&gt;&lt;/div&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="count"&gt;Total Items: &lt;strong id="totalCount"&gt;0&lt;/strong&gt;&lt;/div&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="inventory"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p class="msg" id="msg"&gt;&lt;/p&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
@@ -79,16 +77,15 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>await scanner.open();</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} catch (e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('msg').textContent = 'Camera blocked — use HTTPS (GitHub Pages) and allow camera.';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>alert('Camera blocked — use phone + allow camera');</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>};</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('stopScan').onclick = stopScanner;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function stopScanner() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('stopScan').onclick = () =&gt; {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (scanner) { scanner.close(); scanner = null; }</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('startScan').disabled = false;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('stopScan').disabled = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>};</span></p>
 <p class="p2"><span class="s1"></span><br></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('addItem').onclick = () =&gt; {</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const barcode = document.getElementById('barcode').value.trim();</span></p>
